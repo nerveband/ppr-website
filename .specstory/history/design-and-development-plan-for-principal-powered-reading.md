@@ -450,6 +450,550 @@ This plan provides a detailed roadmap for developing the MVP website. Please let
 
 ---
 
+_**User**_
+
+update all technologies and tech stack based on this. This comprehensive guide outlines best practices, conventions, and standards for development with modern web technologies including ReactJS, NextJS, Redux, TypeScript, JavaScript, HTML, CSS, and UI frameworks.
+
+    Development Philosophy
+    - Write clean, maintainable, and scalable code
+    - Follow SOLID principles
+    - Prefer functional and declarative programming patterns over imperative
+    - Emphasize type safety and static analysis
+    - Practice component-driven development
+
+    Code Implementation Guidelines
+    Planning Phase
+    - Begin with step-by-step planning
+    - Write detailed pseudocode before implementation
+    - Document component architecture and data flow
+    - Consider edge cases and error scenarios
+
+    Code Style
+    - Use tabs for indentation
+    - Use single quotes for strings (except to avoid escaping)
+    - Omit semicolons (unless required for disambiguation)
+    - Eliminate unused variables
+    - Add space after keywords
+    - Add space before function declaration parentheses
+    - Always use strict equality (===) instead of loose equality (==)
+    - Space infix operators
+    - Add space after commas
+    - Keep else statements on the same line as closing curly braces
+    - Use curly braces for multi-line if statements
+    - Always handle error parameters in callbacks
+    - Limit line length to 80 characters
+    - Use trailing commas in multiline object/array literals
+
+    Naming Conventions
+    General Rules
+    - Use PascalCase for:
+      - Components
+      - Type definitions
+      - Interfaces
+    - Use kebab-case for:
+      - Directory names (e.g., components/auth-wizard)
+      - File names (e.g., user-profile.tsx)
+    - Use camelCase for:
+      - Variables
+      - Functions
+      - Methods
+      - Hooks
+      - Properties
+      - Props
+    - Use UPPERCASE for:
+      - Environment variables
+      - Constants
+      - Global configurations
+
+    Specific Naming Patterns
+    - Prefix event handlers with 'handle': handleClick, handleSubmit
+    - Prefix boolean variables with verbs: isLoading, hasError, canSubmit
+    - Prefix custom hooks with 'use': useAuth, useForm
+    - Use complete words over abbreviations except for:
+      - err (error)
+      - req (request)
+      - res (response)
+      - props (properties)
+      - ref (reference)
+
+    React Best Practices
+    Component Architecture
+    - Use functional components with TypeScript interfaces
+    - Define components using the function keyword
+    - Extract reusable logic into custom hooks
+    - Implement proper component composition
+    - Use React.memo() strategically for performance
+    - Implement proper cleanup in useEffect hooks
+
+    React Performance Optimization
+    - Use useCallback for memoizing callback functions
+    - Implement useMemo for expensive computations
+    - Avoid inline function definitions in JSX
+    - Implement code splitting using dynamic imports
+    - Implement proper key props in lists (avoid using index as key)
+
+    Next.js Best Practices
+    Core Concepts
+    - Utilize App Router for routing
+    - Implement proper metadata management
+    - Use proper caching strategies
+    - Implement proper error boundaries
+
+    Components and Features
+    - Use Next.js built-in components:
+      - Image component for optimized images
+      - Link component for client-side navigation
+      - Script component for external scripts
+      - Head component for metadata
+    - Implement proper loading states
+    - Use proper data fetching methods
+
+    Server Components
+    - Default to Server Components
+    - Use URL query parameters for data fetching and server state management
+    - Use 'use client' directive only when necessary:
+      - Event listeners
+      - Browser APIs
+      - State management
+      - Client-side-only libraries
+
+    TypeScript Implementation
+    - Enable strict mode
+    - Define clear interfaces for component props, state, and Redux state structure.
+    - Use type guards to handle potential undefined or null values safely.
+    - Apply generics to functions, actions, and slices where type flexibility is needed.
+    - Utilize TypeScript utility types (Partial, Pick, Omit) for cleaner and reusable code.
+    - Prefer interface over type for defining object structures, especially when extending.
+    - Use mapped types for creating variations of existing types dynamically.
+
+    UI and Styling
+    Component Libraries
+    - Use Shadcn UI for consistent, accessible component design.
+    - Integrate Radix UI primitives for customizable, accessible UI elements.
+    - Apply composition patterns to create modular, reusable components.
+
+    Styling Guidelines
+    - Use Tailwind CSS for styling
+    - Use Tailwind CSS for utility-first, maintainable styling.
+    - Design with mobile-first, responsive principles for flexibility across devices.
+    - Implement dark mode using CSS variables or Tailwind’s dark mode features.
+    - Ensure color contrast ratios meet accessibility standards for readability.
+    - Maintain consistent spacing values to establish visual harmony.
+    - Define CSS variables for theme colors and spacing to support easy theming and maintainability.
+
+    State Management
+    Local State
+    - Use useState for component-level state
+    - Implement useReducer for complex state
+    - Use useContext for shared state
+    - Implement proper state initialization
+
+    Global State
+    - Use Redux Toolkit for global state
+    - Use createSlice to define state, reducers, and actions together.
+    - Avoid using createReducer and createAction unless necessary.
+    - Normalize state structure to avoid deeply nested data.
+    - Use selectors to encapsulate state access.
+    - Avoid large, all-encompassing slices; separate concerns by feature.
+
+
+    Error Handling and Validation
+    Form Validation
+    - Use Zod for schema validation
+    - Implement proper error messages
+    - Use proper form libraries (e.g., React Hook Form)
+
+    Error Boundaries
+    - Use error boundaries to catch and handle errors in React component trees gracefully.
+    - Log caught errors to an external service (e.g., Sentry) for tracking and debugging.
+    - Design user-friendly fallback UIs to display when errors occur, keeping users informed without breaking the app.
+
+    Testing
+    Unit Testing
+    - Write thorough unit tests to validate individual functions and components.
+    - Use Jest and React Testing Library for reliable and efficient testing of React components.
+    - Follow patterns like Arrange-Act-Assert to ensure clarity and consistency in tests.
+    - Mock external dependencies and API calls to isolate unit tests.
+
+    Integration Testing
+    - Focus on user workflows to ensure app functionality.
+    - Set up and tear down test environments properly to maintain test independence.
+    - Use snapshot testing selectively to catch unintended UI changes without over-relying on it.
+    - Leverage testing utilities (e.g., screen in RTL) for cleaner and more readable tests.
+
+    Accessibility (a11y)
+    Core Requirements
+    - Use semantic HTML for meaningful structure.
+    - Apply accurate ARIA attributes where needed.
+    - Ensure full keyboard navigation support.
+    - Manage focus order and visibility effectively.
+    - Maintain accessible color contrast ratios.
+    - Follow a logical heading hierarchy.
+    - Make all interactive elements accessible.
+    - Provide clear and accessible error feedback.
+
+    Security
+    - Implement input sanitization to prevent XSS attacks.
+    - Use DOMPurify for sanitizing HTML content.
+    - Use proper authentication methods.
+
+    Internationalization (i18n)
+    - Use next-i18next for translations
+    - Implement proper locale detection
+    - Use proper number and date formatting
+    - Implement proper RTL support
+    - Use proper currency formatting
+
+    Documentation
+    - Use JSDoc for documentation
+    - Document all public functions, classes, methods, and interfaces
+    - Add examples when appropriate
+    - Use complete sentences with proper punctuation
+    - Keep descriptions clear and concise
+    - Use proper markdown formatting
+    - Use proper code blocks
+    - Use proper links
+    - Use proper headings
+    - Use proper lists
+
+---
+
+_**Assistant**_
+
+Okay, I will update the technology stack and relevant documentation to align with the provided best practices guide. This will involve shifting from a web-builder platform like Squarespace or Wix to a more modern JavaScript-based stack.
+
+Here are the updated files:
+
+```markdown:docs/techContext.md
+// ... existing code ...
+{{ edit_1 }}
+// ... existing code ...
+```
+```markdown:docs/systemPatterns.md
+// ... existing code ...
+{{ edit_2 }}
+// ... existing code ...
+```
+```markdown:docs/activeContext.md
+// ... existing code ...
+{{ edit_3 }}
+// ... existing code ...
+```
+```markdown:docs/progress.md
+// ... existing code ...
+{{ edit_4 }}
+// ... existing code ...
+```
+```markdown:docs/productContext.md
+// ... existing code ...
+{{ edit_5 }}
+// ... existing code ...
+```
+
+Here are the specific edits:
+
+```markdown:docs/techContext.md
+// ... existing code ...
+## Technologies Used
+- **Frontend Framework:** Next.js with React
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, CSS variables
+- **UI Components:** Shadcn UI, Radix UI Primitives
+- **State Management:** Redux Toolkit (for global state), useState, useReducer, useContext (for local state)
+- **Form Validation:** Zod, React Hook Form
+- **Testing:** Jest, React Testing Library
+- **Documentation:** JSDoc
+- **Internationalization:** next-i18next
+
+## Development Setup
+- Node.js and npm or yarn
+- Code editor (VSCode recommended)
+- Git for version control
+- Local development environment
+
+## Technical Constraints
+- **Modern Web Development Practices:** Adhere to the best practices outlined in the provided guide.
+- **Performance Optimization:** Implement React performance optimizations (useCallback, useMemo, code splitting).
+- **Accessibility:**  Ensure website accessibility (semantic HTML, ARIA attributes, keyboard navigation, color contrast).
+- **Responsiveness:**  Mobile-first responsive design.
+// ... existing code ...
+```
+
+**Explanation of `techContext.md` updates:**
+
+*   **Replaced Web-Builder Platform:** Removed Squarespace/Wix and introduced a modern JavaScript stack based on Next.js, React, and TypeScript.
+*   **Added Specific Technologies:** Listed specific technologies for UI components (Shadcn UI, Radix UI), state management (Redux Toolkit), form validation (Zod, React Hook Form), testing (Jest, React Testing Library), documentation (JSDoc), and internationalization (next-i18next) as per the best practices guide.
+*   **Updated Development Setup:**  Reflected standard JavaScript development tools (Node.js, npm/yarn, VSCode, Git).
+*   **Updated Technical Constraints:** Shifted focus to modern web development best practices, performance, accessibility, and responsiveness, aligning with the guide's principles.
+
+```markdown:docs/systemPatterns.md
+// ... existing code ...
+## Architecture
+- **Frontend:** Single-Page Application (SPA) built with Next.js and React.
+- **Routing:** Next.js App Router.
+- **Server-Side Rendering (SSR) / Static Site Generation (SSG):** Leverage Next.js capabilities for SSR/SSG where appropriate for performance and SEO.
+- **Component-Driven:**  Built using reusable React components.
+- **State Management:** Redux Toolkit for global state, React Context and useState/useReducer for local component state.
+- **Styling:** Tailwind CSS for utility-first styling, CSS variables for theming.
+- **E-commerce:** Integrate a suitable e-commerce solution (e.g., Stripe API for payments, consider a lightweight e-commerce platform or service if needed for product/order management - to be determined based on specific requirements beyond MVP).
+
+## Key Technical Decisions
+- **Framework Choice:** Next.js for its comprehensive features, performance optimizations, and developer experience.
+- **Language:** TypeScript for type safety and maintainability.
+- **Styling:** Tailwind CSS for rapid and consistent styling.
+- **Component Library:** Shadcn UI and Radix UI for accessible and customizable UI components.
+- **State Management:** Redux Toolkit for predictable global state management.
+
+## Architecture Patterns
+- **Component-Based Architecture:**  Modular and reusable UI components.
+- **Frontend-Focused:**  Client-side rendering with server-side rendering/static generation for initial load and SEO.
+- **API-Driven (Potentially):**  If e-commerce or future features require backend logic, the frontend will interact with APIs. For MVP, e-commerce integration might be primarily frontend-focused using a service like Stripe.
+// ... existing code ...
+```
+
+**Explanation of `systemPatterns.md` updates:**
+
+*   **Shifted Architecture Description:**  Described a modern frontend architecture using Next.js and React SPA instead of a web-builder platform.
+*   **Detailed Tech Stack in Architecture:**  Specified the use of Next.js App Router, SSR/SSG, component-driven approach, Redux Toolkit, Tailwind CSS, etc., within the architecture description.
+*   **Key Technical Decisions Updated:**  Highlighted the rationale behind choosing Next.js, TypeScript, Tailwind CSS, and component libraries.
+*   **Architecture Patterns Updated:**  Reflected component-based, frontend-focused architecture, and potential for API-driven approach if backend logic is needed in the future.
+
+```markdown:docs/activeContext.md
+// ... existing code ...
+## Recent Changes
+- Updated tech stack to Next.js, React, TypeScript, Tailwind CSS, etc., based on best practices guide.
+- Revised `techContext.md` and `systemPatterns.md` to reflect the new tech stack.
+- Updated development plan to align with the new technology choices.
+
+## Next Steps
+1. Finalize and present the updated design and development plan to the user.
+2. Upon approval, begin website development using Next.js and the chosen technologies.
+3. Set up development environment and project structure.
+4. Start building components and pages based on the updated plan.
+5. Continuously update documentation as development progresses.
+
+## Design and Development Plan (Detailed Below - Updated for new tech stack)
+// ... existing code ...
+```
+
+**Explanation of `activeContext.md` updates:**
+
+*   **Recent Changes Updated:**  Documented the change in tech stack and the corresponding updates to `techContext.md` and `systemPatterns.md`.
+*   **Next Steps Updated:**  Adjusted next steps to reflect development using Next.js and the new tech stack, including environment setup and component building.
+
+```markdown:docs/progress.md
+// ... existing code ...
+## What Works
+- Initial website content and brand guidelines are provided.
+- Design and development plan is created and updated for the new tech stack.
+- Tech stack and architecture documentation updated.
+
+## What's Left to Build
+- Website structure and component development using Next.js, React, and TypeScript.
+- E-commerce integration (using Stripe or similar).
+- SEO optimization.
+- Mobile responsiveness implementation.
+- Content population and finalization.
+- Unit and integration testing.
+- Accessibility implementation.
+- Internationalization (if required).
+- Deployment (e.g., Vercel, Netlify).
+- Documentation (JSDoc, user guide).
+
+## Progress Status
+- Planning phase: Completed (updated for new tech stack).
+- Development phase: Not started.
+- Testing phase: Not started.
+- Deployment phase: Not started.
+// ... existing code ...
+```
+
+**Explanation of `progress.md` updates:**
+
+*   **What Works Updated:**  Confirmed that the plan and documentation are updated for the new tech stack.
+*   **What's Left to Build Updated:**  Reflected development tasks specific to the new tech stack, including component development, e-commerce integration (Stripe), testing, accessibility, internationalization, and deployment on platforms like Vercel or Netlify.
+
+```markdown:docs/productContext.md
+// ... existing code ...
+## How It Should Work
+The website should be a simple, informative, and professional platform that:
+- Clearly communicates the mission and value proposition of "Principal Powered Reading".
+- Provides detailed information about workshops and the founder.
+- Allows users to easily register and pay for workshops.
+- Is performant, accessible, and maintainable using modern web development technologies.
+- Is scalable and adaptable for future feature additions.
+// ... existing code ...
+```
+
+**Explanation of `productContext.md` updates:**
+
+*   **How It Should Work Updated:** Added requirements for performance, accessibility, maintainability using modern technologies, and scalability to align with the shift to a more robust tech stack.
+
+With these updates, the documentation and project plan now reflect a modern JavaScript-based tech stack for the "Principal Powered Reading" website, adhering to the best practices guide you provided. Let me know if you would like me to further refine the development plan based on these technology choices.
+
+---
+
+_**User**_
+
+give me a full markdown document in one document that contains the full plan in detail
+
+---
+
+_**Assistant**_
+
+```markdown:website_development_plan.md
+# Principal Powered Reading Website - Detailed Development Plan
+
+## 1. Project Context
+
+### 1.1. Product Context (productContext.md)
+
+#### 1.1.1. Why This Project Exists
+To establish an online presence for "Principal Powered Reading" and promote their workshops and services to educational leaders.
+
+#### 1.1.2. Problems It Solves
+- Lack of online visibility for "Principal Powered Reading".
+- Difficulty for potential clients (principals, school leaders) to find information about workshops and services.
+- Inefficient workshop registration process.
+
+#### 1.1.3. How It Should Work
+The website should be a simple, informative, and professional platform that:
+- Clearly communicates the mission and value proposition of "Principal Powered Reading".
+- Provides detailed information about workshops and the founder.
+- Allows users to easily register and pay for workshops.
+- Is performant, accessible, and maintainable using modern web development technologies.
+- Is scalable and adaptable for future feature additions.
+
+### 1.2. Active Context (activeContext.md)
+
+#### 1.2.1. Current Task
+Creating a detailed development plan for the "Principal Powered Reading" website.
+
+#### 1.2.2. Recent Changes
+- Updated tech stack to Next.js, React, TypeScript, Tailwind CSS, etc., based on best practices guide.
+- Revised `techContext.md` and `systemPatterns.md` to reflect the new tech stack.
+- Updated development plan to align with the new technology choices.
+
+#### 1.2.3. Next Steps
+1. Finalize and present the updated detailed development plan to the user.
+2. Upon approval, begin website development using Next.js and the chosen technologies.
+3. Set up development environment and project structure.
+4. Start building components and pages based on the updated plan.
+5. Continuously update documentation as development progresses.
+
+### 1.3. System Patterns (systemPatterns.md)
+
+#### 1.3.1. Architecture
+- **Frontend:** Single-Page Application (SPA) built with Next.js and React.
+- **Routing:** Next.js App Router.
+- **Server-Side Rendering (SSR) / Static Site Generation (SSG):** Leverage Next.js capabilities for SSR/SSG where appropriate for performance and SEO.
+- **Component-Driven:**  Built using reusable React components.
+- **State Management:** Redux Toolkit for global state, React Context and useState/useReducer for local component state.
+- **Styling:** Tailwind CSS for utility-first styling, CSS variables for theming.
+- **E-commerce:** Integrate a suitable e-commerce solution (e.g., Stripe API for payments, consider a lightweight e-commerce platform or service if needed for product/order management - to be determined based on specific requirements beyond MVP).
+
+#### 1.3.2. Key Technical Decisions
+- **Framework Choice:** Next.js for its comprehensive features, performance optimizations, and developer experience.
+- **Language:** TypeScript for type safety and maintainability.
+- **Styling:** Tailwind CSS for rapid and consistent styling.
+- **Component Library:** Shadcn UI and Radix UI for accessible and customizable UI components.
+- **State Management:** Redux Toolkit for predictable global state management.
+
+#### 1.3.3. Architecture Patterns
+- **Component-Based Architecture:**  Modular and reusable UI components.
+- **Frontend-Focused:**  Client-side rendering with server-side rendering/static generation for initial load and SEO.
+- **API-Driven (Potentially):**  If e-commerce or future features require backend logic, the frontend will interact with APIs. For MVP, e-commerce integration might be primarily frontend-focused using a service like Stripe.
+
+### 1.4. Tech Context (techContext.md)
+
+#### 1.4.1. Technologies Used
+- **Frontend Framework:** Next.js with React
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, CSS variables
+- **UI Components:** Shadcn UI, Radix UI Primitives
+- **State Management:** Redux Toolkit (for global state), useState, useReducer, useContext (for local state)
+- **Form Validation:** Zod, React Hook Form
+- **Testing:** Jest, React Testing Library
+- **Documentation:** JSDoc
+- **Internationalization:** next-i18next
+
+#### 1.4.2. Development Setup
+- Node.js and npm or yarn
+- Code editor (VSCode recommended)
+- Git for version control
+- Local development environment
+
+#### 1.4.3. Technical Constraints
+- **Modern Web Development Practices:** Adhere to the best practices outlined in the provided guide.
+- **Performance Optimization:** Implement React performance optimizations (useCallback, useMemo, code splitting).
+- **Accessibility:**  Ensure website accessibility (semantic HTML, ARIA attributes, keyboard navigation, color contrast).
+- **Responsiveness:**  Mobile-first responsive design.
+
+### 1.5. Progress (progress.md)
+
+#### 1.5.1. What Works
+- Initial website content and brand guidelines are provided.
+- Design and development plan is created and updated for the new tech stack.
+- Tech stack and architecture documentation updated.
+
+#### 1.5.2. What's Left to Build
+- Website structure and component development using Next.js, React, and TypeScript.
+- E-commerce integration (using Stripe or similar).
+- SEO optimization.
+- Mobile responsiveness implementation.
+- Content population and finalization.
+- Unit and integration testing.
+- Accessibility implementation.
+- Internationalization (if required).
+- Deployment (e.g., Vercel, Netlify).
+- Documentation (JSDoc, user guide).
+
+#### 1.5.3. Progress Status
+- Planning phase: Completed (updated for new tech stack).
+- Development phase: Not started.
+- Testing phase: Not started.
+- Deployment phase: Not started.
+
+## 2. Detailed MVP Design & Development Plan
+
+### 2.1. Project Goals
+
+*   **Primary Goal:** Create a simple, informative website to promote "Principal Powered Reading" workshops and services to educational leaders, driving workshop registrations.
+*   **MVP Focus:**  Launch a functional website quickly with core information and registration capabilities. Advanced features can be added in later iterations.
+
+### 2.2. Target Audience
+
+*   Principals
+*   School Leaders
+*   Teacher-Leaders
+*   Educational Leaders
+
+### 2.3. Website Name
+
+*   Principal Powered Reading
+
+### 2.4. Design Guidelines
+
+#### 2.4.1. Color Scheme ("Modern Authority" Palette)
+
+*   **Primary:** Logo Yellow (#F4C430) - Use for primary buttons, accents, and highlights.
+*   **Secondary:** Deep Navy (#1C2B4B) - Use for headers, navigation, and important text.
+*   **Supporting Colors:**
+    *   Pure White (#FFFFFF) - Backgrounds, text contrast.
+    *   Light Gray (#F5F5F5) -  Secondary backgrounds, subtle dividers.
+    *   Dark Charcoal (#2D2D2D) - Body text, general text content.
+
+#### 2.4.2. Typography
+
+*   **Font Specification:**  Company will provide font specifications.  If not immediately available, use clean, professional, and readable fonts (e.g.,  "Roboto" or "Open Sans" for body text, and a slightly bolder sans-serif for headings).
+*   **Font Sizes:**  Ensure readability across devices. Use a clear hierarchy of font sizes for headings, subheadings, and body text.
+
+#### 2.4.3. Visual Elements
+
+*   
+
+---
+
 
 
 ---
